@@ -25,16 +25,19 @@ public class FileUserDao implements UserDao {
         try {
             Scanner scanner = new Scanner(new File(url));
             while (scanner.hasNext()) {
-                StringTokenizer tokenizer = new StringTokenizer(scanner.nextLine());
-                String username = tokenizer.nextToken();
-                String password = tokenizer.nextToken();
-
-                users.add(new User(username, password));
+                users.add(getUser(scanner.nextLine()));
             }
-        } catch (FileNotFoundException ex) {
-        }
+        } catch (FileNotFoundException ex) {}
 
         return users;
+    }
+
+    private User getUser(String line) {
+        StringTokenizer tokenizer = new StringTokenizer(line);
+        String username = tokenizer.nextToken();
+        String password = tokenizer.nextToken();
+
+        return new User(username, password);
     }
 
     @Override
@@ -58,11 +61,15 @@ public class FileUserDao implements UserDao {
             writer.write(user.getUsername() + " " + user.getPassword() + "\n");
         } catch (IOException ex) {
         } finally {
-            if (writer != null) {
-                try {
-                    writer.close();
-                } catch (IOException ex) {
-                }
+            closeWriter(writer);
+        }
+    }
+
+    private void closeWriter(FileWriter writer) {
+        if (writer != null) {
+            try {
+                writer.close();
+            } catch (IOException ex) {
             }
         }
     }

@@ -2,6 +2,8 @@
 <checkstyle version="5.6">
 <file name="D:\ohtu\ohtu2016\viikko3\LoginEasyBv1\src\main\java\ohtu\App.java">
 </file>
+<file name="D:\ohtu\ohtu2016\viikko3\LoginEasyBv1\src\main\java\ohtu\data_access\FileUserDao.java">
+</file>
 <file name="D:\ohtu\ohtu2016\viikko3\LoginEasyBv1\src\main\java\ohtu\data_access\InMemoryUserDao.java">
 </file>
 <file name="D:\ohtu\ohtu2016\viikko3\LoginEasyBv1\src\main\java\ohtu\data_access\UserDao.java">
