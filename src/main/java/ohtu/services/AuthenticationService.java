@@ -77,7 +77,7 @@ public class AuthenticationService {
     }
 
     private boolean isBetweenAZ(char c) {
-        return (isUppercaseAZ(c) || isLowercaseAZ(c));
+        return false;
     }
     
     private boolean isUppercaseAZ(char c) {
